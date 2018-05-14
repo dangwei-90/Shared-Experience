@@ -1,5 +1,7 @@
 Python 安装包：https://www.python.org/downloads/
 Geany 安装包：https://geany.org/
+Pygame 安装包：http://www.pygame.org/download.shtml
+
 
 安装Python时注意勾选 Add Python 3.6 to Path
 作者安装python 和 geany 时都采用了默认的安装路径。
