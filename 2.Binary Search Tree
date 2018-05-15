@@ -1,0 +1,25 @@
+二叉查找树（Binary Search Tree），（又：二叉搜索树，二叉排序树）它或者是一棵空树，或者是具有下列性质的二叉树： 
+a.若它的左子树不空，则左子树上所有结点的值均小于它的根结点的值； 
+b.若它的右子树不空，则右子树上所有结点的值均大于它的根结点的值； 
+c.它的左、右子树也分别为二叉排序树。
+
+@20180515 修剪二叉树,使二叉树的左子树结点值大于L，右子树结点值小于R [L，R]
+Solution:
+采用递归
+tree* func(tree* root, int L, int R)
+{
+    if(!root)
+    {
+        return nullptr;
+    }
+    if(root.val < L) 
+        return func(root->right, L, R);
+    else if(root.val > R) 
+        return func(root->left, L, R);
+    else 
+    {
+        root->right = func(root->right, L, R);
+        root->left = func(root->left, L, R);
+        return root;
+    }
+}
