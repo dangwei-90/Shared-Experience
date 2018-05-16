@@ -3,3 +3,56 @@
 BFS:宽度优先搜索, 从根节点开始, 沿着树的宽度遍历树的节点; 如果所有节点均被访问, 则算法中止。
     保证这个访问的顺序，借助队列数据结构，由于队列是先进先出的顺序，因此可以先将左子树入队，然后再将右子树入队。
     这样一来，左子树结点就存在队头，可以先被访问到。
+
+例子：用BFS方式求二叉树每层的平均值
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    vector<double> averageOfLevels(TreeNode* root) {
+        vector<double> vecaver;
+        queue<TreeNode*> bfstree;
+        if(root == nullptr)
+        {
+            return vecaver;
+        }
+        bfstree.push(root);
+               
+        while(!bfstree.empty())
+        {            
+            double nColumnAver = 0;
+            // 当前层数的结点数量
+            int nsize = bfstree.size();
+            double nSum = 0;
+            
+            for(int n = 0; n < nsize; n++)
+            {
+                // 取出头一个元素
+                TreeNode* temp = bfstree.front();
+                bfstree.pop();
+                // 如果存在左右结点，从左到右依次放入queue
+                if(temp->left != nullptr)
+                {
+                    bfstree.push(temp->left);
+                }
+                if(temp->right != nullptr)
+                {
+                    bfstree.push(temp->right);
+                }
+                nSum = nSum + temp->val;
+            }
+            
+            nColumnAver = (double)nSum/nsize;
+            vecaver.emplace_back(nColumnAver);
+        }
+        
+        return vecaver;
+    }
+};
