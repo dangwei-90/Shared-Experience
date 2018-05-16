@@ -1,0 +1,18 @@
+STL 常用的有vector/unorder_map/queue等，本篇为queue
+queue, 队列, 队列也是一种逻辑数据结构, 其具有先进先出的特性;
+
+queue 构造函数
+std::deque<int> mydeck (3,100);        // 3个元素，值为100
+std::list<int> mylist (2,200);         // list with 2 elements
+std::queue<int> first;                 // 空queue
+std::queue<int> second (mydeck);       // deque初始化queue
+std::queue<int,std::list<int> > third; // 链表为容器的空queue
+std::queue<int,std::list<int> > fourth (mylist);  // 链表为容器初始化queue
+
+常用函数
+first.empty();          //队列是否为空
+int = first.size();     //队列元素个数
+int n = first.front();  //返回队头元素
+int n = first.back();   //返回队尾元素
+first.push(20);         //向队列添加元素，添加到队尾
+first.pop();            //删除下一个元素，也即队头元素
