@@ -1,0 +1,8 @@
+eg:./HDClient :error while loading shared libraries:libcmapi.so:cannot open shared object file:Permission denied
+处理方式:
+1.权限导致
+  chmod 777 HDClient
+  chmod a+s HDClient
+  
+2.执行程序所属组导致
+  chown root:root HDClient
