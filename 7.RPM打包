@@ -1,3 +1,6 @@
-1.RPM打包忽略依赖关系
+1.RPM打包
+  rpmbuild -ba hdprint.spec
+
+2.RPM安装忽略依赖关系
   rpm -i --force --nodep
   例如：rpm -ivh --nodeps --force HDPrint.rpm
