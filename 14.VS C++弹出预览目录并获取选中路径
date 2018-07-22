@@ -1,0 +1,39 @@
+//************************************
+// Method:      GetSelectPathFromBrowse
+// Access:      public 
+// Returns:     int
+// CreateTime:  2018年07月18日
+// Author:		  dangw
+// Describe:	  弹出预览目录并获取选中路径
+//************************************
+int GetSelectPathFromBrowse(char* szPath)
+{
+  // 解密文件到指定路径
+  BROWSEINFO browseInfo;
+  LPITEMIDLIST pItemID;
+  memset(&browseInfo, 0, sizeof(BROWSEINFO));
+  browseInfo.hwndOwner = m_hWnd;
+  browseInfo.pidlRoot = NULL;
+  browseInfo.lpszTitle = "请选择路径：";
+
+  pItemID = SHBrowseForFolder(&browseInfo);
+  if(pItemID)
+  {
+    if(SHGetPathFromIDList(pItemID, szPath))
+    {
+      // 获取用户存放路径
+      sprintf_s(szPath, 2*MAX_PATH, "%s\\Burndate.rar", szPath);
+      // return 1;
+    } 
+    else
+    {
+      // 获取路径失败
+      return -1;
+    }
+  }
+  else
+  {
+    // 执行取消操作
+    return 0;
+  }
+}
