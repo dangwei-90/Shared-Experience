@@ -1,0 +1,45 @@
+//************************************
+// Method:      GetInstallPath
+// Access:      public 
+// Returns:     int
+// CreateTime:  2018年07月18日
+// Author:		dangw
+// Describe:	获取程序当前路径
+//************************************
+void CreateMyBatOrProcess()
+{
+  // 执行的bat脚本
+  TCHAR szNsiPath[MAX_PATH*2] = {0x00};
+  sprintf_s(szNsiPath, MAX_PATH*2, "%s\\HDSecBurn.bat", InstallPath);
+
+  // CreateProcess
+  BOOL ret;
+  DWORD dwExitCode;
+  PROCESS_INFORMATION pi;
+  STARTUPINFO si;
+  si.cb = sizeof(STARTUPINFO);     
+  si.dwFlags = STARTF_USESTDHANDLES|STARTF_USESHOWWINDOW;
+  //si.wShowWindow = SW_HIDE;
+  si.wShowWindow = SW_MINIMIZE;
+  si.lpReserved = NULL;
+  si.cbReserved2 = 0;
+  si.lpReserved2 = NULL;
+  GetStartupInfo(&si);            // 该函数返回进程在启动时被指定的 STARTUPINFO 结构
+
+  // 执行CreateProcess 参数CREATE_NO_WINDOW 可以隐藏窗口
+  ret = ::CreateProcess(NULL, szNsiPath, NULL, NULL, FALSE, CREATE_NO_WINDOW, NULL, NULL, &si, &pi);
+  if( ret )
+  {													
+    // 关闭子进程的主线程句柄		
+    WaitForSingleObject(pi.hProcess, INFINITE);		
+    // 等待子进程的退出							
+    GetExitCodeProcess(&pi.hProcess, &dwExitCode);	
+    // 获取子进程的退出码
+    CloseHandle(pi.hThread);		
+    CloseHandle(pi.hProcess); 
+  }
+  else
+  {
+    // fail
+  } 
+}
