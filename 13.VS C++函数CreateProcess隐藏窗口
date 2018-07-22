@@ -1,10 +1,10 @@
 //************************************
-// Method:      GetInstallPath
+// Method:      CreateMyBatOrProcess
 // Access:      public 
-// Returns:     int
+// Returns:     void
 // CreateTime:  2018年07月18日
-// Author:		dangw
-// Describe:	获取程序当前路径
+// Author:		  dangw
+// Describe:	  CreateProcess隐藏窗口
 //************************************
 void CreateMyBatOrProcess()
 {
