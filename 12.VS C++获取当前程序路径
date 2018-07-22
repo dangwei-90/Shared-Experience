@@ -1,0 +1,33 @@
+// 定义变量，用户存放程序路径
+TCHAR m_InstallPath[2*MAX_PATH] = {0x00};
+
+//************************************
+// Method:      GetInstallPath
+// FullName:    CHDPrintClientDlg::GetInstallPath
+// Access:      public 
+// Returns:     int
+// CreateTime:  2015年3月24日
+// Author:		dangw
+// Describe:	获取程序当前路径
+//************************************
+int CHDPrintClientDlg::GetInstallPath()
+{
+	TCHAR szFullPath[2*MAX_PATH] = {0x00};	//用于存储获取当前程序全路径
+	TCHAR szDir[2*MAX_PATH] = {0x00};
+	TCHAR szDrive[2*MAX_PATH] = {0x00};		
+	::GetModuleFileName(NULL, szFullPath, MAX_PATH);
+	_tsplitpath(szFullPath, szDrive, szDir, NULL, NULL);
+	sprintf_s(m_InstallPath, 2*MAX_PATH, "%s%s", szDrive, szDir);
+
+	int nAdd = strlen(m_InstallPath);
+	if(m_InstallPath[nAdd-1] == '\\')
+	{
+		sprintf_s(m_InstallPath, 2*MAX_PATH, "%s", m_InstallPath);
+	}
+	else
+	{
+		sprintf_s(m_InstallPath, 2*MAX_PATH, "%s\\", m_InstallPath);
+	}
+
+	return 0;
+}
