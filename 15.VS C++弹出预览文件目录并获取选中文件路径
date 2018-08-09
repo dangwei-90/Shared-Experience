@@ -1,0 +1,24 @@
+//************************************
+// Method:      GetSelectFilePath
+// Access:      public 
+// Returns:     int
+// CreateTime:  2018年08月09日
+// Author:		  dangw
+// Describe:	  弹出预览文件目录并获取选中文件路径
+//************************************
+int GetSelectFilePath(char* szPath)
+{
+ 	CString strFile = _T("");
+
+	CFileDialog	dlgFile(TRUE, NULL, NULL, OFN_HIDEREADONLY, _T("All Files(*.*)|*.*|"), NULL);
+
+	if (dlgFile.DoModal())
+	{
+		strFile = dlgFile.GetPathName();
+	}
+
+	sprintf_s(szPath, "%s", strFile.GetBuffer());
+	strFile.ReleaseBuffer();
+  
+  return 0;
+}
