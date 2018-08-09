@@ -8,8 +8,8 @@
 //************************************
 int GetSelectFilePath(char* szPath)
 {
- 	CString strFile = _T("");
-
+	memset(szPath, 0x00, MAX_PATH * 2);
+	CString strFile = _T("");
 	CFileDialog	dlgFile(TRUE, NULL, NULL, OFN_HIDEREADONLY, _T("All Files(*.*)|*.*|"), NULL);
 
 	if (dlgFile.DoModal())
@@ -17,8 +17,8 @@ int GetSelectFilePath(char* szPath)
 		strFile = dlgFile.GetPathName();
 	}
 
-	sprintf_s(szPath, "%s", strFile.GetBuffer());
+	sprintf_s(szPath, MAX_PATH*2, "%s", strFile.GetBuffer());
 	strFile.ReleaseBuffer();
-  
-  return 0;
+
+	return 0;
 }
