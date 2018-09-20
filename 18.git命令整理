@@ -1,0 +1,46 @@
+1.基础
+git init  // 初始化仓库
+git add xxx   // 添加待提交文件/文件夹到暂存区，不支持上传空文件夹
+git commit -m "xxx"   // 正式提交上传至仓库
+git checkout -- xxx   // 撤销对xxx的修改
+git rm xxx  && git commit -m "delete xxx"// 删除xxx文件
+
+2.版本
+git log   // 所有历史版本日志
+git log --graph   // 所有历史分支合并图
+git log --pretty=oneline  // 一行显示一个版本展示所有版本
+git log --abbrev-commit   // 缩写校验码
+git reset --hard HEAD~n   // 回退至第n个版本，cmd下不支持HEAD^,由于^符号表示换行
+git reflog  // 所有历史提交日志
+git diff HEAD --xxx   // 对比xxx与上个版本的差异
+
+3.分支
+git branch    // 查看分支信息
+git branch -a   // 获取分支信息
+git branch -b xxx   // 建立分支
+git branch -d xxx   // 删除分支
+git branch -D xxx   // 强行删除分支
+git branch --set-upstream-to=origin/xxx xxx   // 设置本地xxx分支与远程仓库xxx分支关联
+git checkout xxx  // 跳转到xxx分支
+git merge xxx   // 把xxx分支代码合并到当前分支（快速合并）
+git merge --no-ff -m "xx" xxx   // 把xxx分支代码合并到当前分支（普通合并）
+git push origin master    // 上传代码到master主干
+git clone git@github.com:dangwei-90/xxx.git   // 下载代码
+git stash   // 存储当前工作区
+git stash   // 查看存储的工作区
+git stash apply   // 恢复并保留工作区
+git stash drop  // 删除工作区
+git stash pop   // 恢复并删除工作区
+git remote    // 查看远程源库信息
+git remote -v   // 查看远程源库详情
+git push origin xxx   // 提交xxx代码到远程源仓库
+git pull  // 获取代码
+
+4.标签
+git tag xxx   // 添加标签，主要用于版本管理
+git tag xxx f291473   // 对制定记录添加标签
+git show tag xxx   // 查看xxx标签对于的内容
+git tag -d xxx  // 删除xxx标签
+git push origin xxx   // 推送xxx标签
+git push origin --tags  // 推送所有标签
+git tag -d xxx  &&  git push origin :refs/tags/xxx    // 删除远程仓库的xxx标签
