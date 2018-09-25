@@ -1,0 +1,10 @@
+1.开机启动
+  修改注册表，把outlook添加到开机选项中。
+
+2.最小化时隐藏
+  a.启动outlook
+  b.右下角任务栏中，右键勾选“最小化时隐藏”，即可。
+  
+3.将outlook关闭按钮修改为最小化
+  a.访问 http://www.reliefjet.com/Quicks/Features/QuickTweaks ，下载该插件，安装该插件时需要关闭outlook
+  b.启动outlook，菜单栏中选择 ReliefJet -> Quick Tweaks, 勾选 Minimize Outlook on close ，即可。
