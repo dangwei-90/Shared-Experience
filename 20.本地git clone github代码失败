@@ -1,0 +1,4 @@
+使用：git clone git@github.com:dangwei-90/Shared-Experience.git 失败
+报错：ssh: connect to host github.com port 22: Connection timed out
+解决方式：更换http下载方式，执行 git clone https://github.com/dangwei-90/Shared-Experience.git
+原因：可能是git版本问题，尚未定位
