@@ -4,6 +4,7 @@ git add xxx   // 添加待提交文件/文件夹到暂存区，不支持上传�
 git commit -m "xxx"   // 正式提交上传至仓库
 git checkout -- xxx   // 撤销对xxx的修改
 git rm xxx  && git commit -m "delete xxx"// 删除xxx文件
+git mv oldfold newfold
 
 2.版本
 git log   // 所有历史版本日志
