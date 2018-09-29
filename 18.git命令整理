@@ -12,6 +12,7 @@ git log --graph   // 所有历史分支合并图
 git log --pretty=oneline  // 一行显示一个版本展示所有版本
 git log --abbrev-commit   // 缩写校验码
 git reset --hard HEAD~n   // 回退至第n个版本，cmd下不支持HEAD^,由于^符号表示换行
+git reset --hard commit-id  // 回退至commit-id版本
 git reflog  // 所有历史提交日志
 git diff HEAD --xxx   // 对比xxx与上个版本的差异
 
