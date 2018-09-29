@@ -1,0 +1,4 @@
+现象：加载本地iso系统文件，启动镜像，蓝屏并显示boot normally等等
+处理方式：
+打开这个虚拟机的目录下找到.vmx后缀的，用记事本打开将 firmware = "efi" 变成 firmware = "bios"，保存。启动正常
+原因：暂不明
