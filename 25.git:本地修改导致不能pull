@@ -1,0 +1,9 @@
+本地修改过某文件，不想提及，但是又想pull，解决方式：
+1.git stash
+2.git pull
+3.git stash apply 0
+
+原因：
+1.通过git stash 讲本地改动临时存储，存储后本地代码为干净代码
+2.git pull下拉最新代码
+3.还原合并本地存储到最新下拉代码
