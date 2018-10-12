@@ -1,0 +1,5 @@
+std::string os;
+os = base::win::GetWindowsInfo();
+if (os == "xxxx") {
+  ...
+}
