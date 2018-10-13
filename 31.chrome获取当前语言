@@ -1,0 +1,3 @@
+#include "chrome/browser/browser_process.h"
+
+std::string application_locale = g_browser_process->GetApplicationLocale();
