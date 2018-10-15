@@ -1,0 +1,13 @@
+文件generated_resources_xxx.grdp
+添加：
+<message name="IDS_HELLO_WORLD" use_name_for_id="true" desc="">
+  Hello world
+</message>
+
+文件generated_resources_zh-CN.xtb
+添加:
+<translation id="IDS_HELLO_WORLD">你好世界</translation>	5522
+
+文件xxx.cc
+添加:
+base::string16 incognito_title = l10n_util::GetStringUTF16(IDS_HELLO_WORLD);
