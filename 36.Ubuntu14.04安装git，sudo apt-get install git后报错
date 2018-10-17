@@ -1,0 +1,13 @@
+命令：sudo apt-get install git 报错
+
+报错信息：
+Could not get lock /var/lib/dpkg/lock - open (11: Resource temporarily unavailable)
+Unable to lock the administration directory (/var/lib/dpkg/), is another process using it?
+
+执行：
+sudo rm /var/lib/apt/lists/lock
+或者
+sudo rm /var/cache/apt/archives/lock
+sudo rm /var/lib/dpkg/lock
+
+重启，执行即可。
