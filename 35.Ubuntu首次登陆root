@@ -1,0 +1,2 @@
+首次安装的纯净的Ubuntu没有root密码，所以需要设置密码后可以使用。
+命令：sudo passwd
