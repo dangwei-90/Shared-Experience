@@ -1,0 +1,29 @@
+1.检查SSH-KEY是否已经生成过
+  ls -al ~/.ssh
+  
+2.生成新的SSH-KEY
+  ssh-keygen -t rsa -C "your_email@example.com"
+  
+3.生成成功
+  Your identification has been saved in /root/.ssh/id_rsa.
+  Your public key has been saved in /root/.ssh/id_rsa.pub.
+  The key fingerprint is:
+  59:de:8f:80:f7:89:e6:7e:88:47:ee:fc:b1:dc:ea:2b your_email@example.com
+  The key's randomart image is:
+  +--[ RSA 2048]----+
+  |                 |
+  |                 |
+  |          .      |
+  |         = .     |
+  |        S + .    |
+  |         ..+ +   |
+  |         +o.= .  |
+  |        .+E..+   |
+  |         +==Bo.  |
+  +-----------------+
+
+4.查看生成成功的KEY
+  cat /root/.ssh/id_rsa.pub
+  ssh-rsa xxx your_email@example.com
+
+5.拷贝id_rsa.pub的内容使用即可
