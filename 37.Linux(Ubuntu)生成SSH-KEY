@@ -1,3 +1,5 @@
+建议使用root把ssh文件生成在/root/.ssh/路径下
+
 1.检查SSH-KEY是否已经生成过
   ls -al ~/.ssh
   
