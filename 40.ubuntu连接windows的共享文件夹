@@ -1,0 +1,24 @@
+本地环境：WIN7 x64
+虚拟机版本：VMware 14
+虚拟机系统：Ubuntu 14.04
+*注：建议用root账号进行下列操作
+
+1.添加本地共享文件夹
+  点击VMWare的“虚拟机”-“设置”-“选项”
+    点击“共享文件夹”，选择“总是启用”
+    点击添加，添加待共享的本地路径
+    
+2.重装vmware tools
+  启动虚拟机
+  点击VMWare的“虚拟机”-“重新安装VMware Tools”，如果没有装过，此处应该为“安装VMware Tools”
+  Ubuntu系统中，会弹出虚拟光驱，里边为vmware tools的安装文件等，此路径为 /media/username/VMware Tools
+  拷贝文件到其他路径：
+  cp -r * ~/vmwaretools
+  cd ~/vmwaretools
+  tar zxvf VMwareTools-10.1.15-6627299.tar.gz
+  cd vmware-tools-distrib/
+  ./vmware-install.pl
+  
+3.完成
+  设置的共享文件夹在/mnt/hgfs/下.
+     
