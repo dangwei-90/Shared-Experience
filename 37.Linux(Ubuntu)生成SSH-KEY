@@ -5,6 +5,9 @@
   
 2.生成新的SSH-KEY
   ssh-keygen -t rsa -C "your_email@example.com"
+  输入: id_rsa
+  输入：密码
+  重复输入：密码
   
 3.生成成功
   Your identification has been saved in /root/.ssh/id_rsa.
