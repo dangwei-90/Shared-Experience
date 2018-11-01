@@ -29,6 +29,9 @@
 
 4.查看生成成功的KEY
   cat /root/.ssh/id_rsa.pub
-  ssh-rsa xxx your_email@example.com
+  内容如下：
+  ssh-rsa ..................
+  ..........................
+  ....your_email@example.com
 
 5.拷贝id_rsa.pub的内容使用即可
