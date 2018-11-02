@@ -1,0 +1,63 @@
+虚拟机系统：VMware 14
+操作系统： Ubuntu14.04
+QT版本：4.8.7
+
+1.下载QT
+  版本：QT4.8.7
+  路径：http://download.qt.io/archive/qt/4.8/4.8.7/
+  *注：QT所有版本下载路径：http://download.qt.io/archive/qt/
+  
+2.安装QT
+  安装需要用到的其他环境：
+  sudo apt-get install g++
+  sudo apt-get install g++-multilib libx11-dev libxext-dev libxtst-dev zlib1g-dev lib32ncurses5 lib32z1 libpng-dev autoconf automake libtool
+  
+  解压：
+  tar -xzvf qt-everywhere-opensource-src-4.8.7.tar.gz
+  
+  安装：
+  cd qt-everywhere-opensource-src-4.8.7
+  // 如需修改安装目录和同时编译出debug 和 release版本 ./configure 选择‘o’，然后yes接受协议，稍等一会
+  ./configure
+  o
+  yes
+  make
+  make install 
+
+  查看安装是否成功：
+  cd /usr/local/Trolltech/Qt-4.8.7 qt安装在这个文件夹
+  cd bin
+  // 如果出来版本信息说明安装成功
+  ./qmake -v 
+  
+3.配置环境变量
+  打开profile文件：
+  sudo gedit /etc/profile   
+  
+  添加命令：
+  export QTDIR=/usr/local/Trolltech/Qt-4.8.7
+  export PATH=$QTDIR/bin:$PATH
+  export MANPATH=$QTDIR/man:$MANPATH
+  export LD_LIBRARY_PATH=$QTDIR/lib:$LD_LIBRARY_PATH
+  
+4.修改默认路径
+  // 如果报错qmake找不到，需要手动修改默认库路径。
+  qmake -v
+  
+  // 修改default.conf配置文件
+  cd /usr/lib/x86_64-linux-gnu/qt-default/qtchooser/
+
+  // eg: 
+  // 将默认的该两行
+  /usr/lib/x86_64-linux-gnu/qt4/bin
+  /usr/lib/x86_64-linux-gnu/qt4
+  // 修改为该两行
+  /usr/local/Trolltech/Qt-4.8.7/bin
+  /usr/local/Trolltech/Qt-4.8.7
+  
+  // 输入qmake验证
+  qmake -v
+  
+5.安装QT Creater
+  chmod a+x qt-creator-opensource-linux-x86_64-4.4.1.run
+  ./qt-creator-opensource-linux-x86_64-4.4.1.run
