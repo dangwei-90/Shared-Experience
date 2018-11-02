@@ -5,6 +5,7 @@ QT版本：4.8.7
 1.下载QT
   版本：QT4.8.7
   路径：http://download.qt.io/archive/qt/4.8/4.8.7/
+       or https://yunpan.360.cn/surl_ym5Ip2rkKxy （提取码：c0a9）
   *注：QT所有版本下载路径：http://download.qt.io/archive/qt/
   
 2.安装QT
@@ -59,5 +60,6 @@ QT版本：4.8.7
   qmake -v
   
 5.安装QT Creater
+  下载路径：https://yunpan.360.cn/surl_ym5Iz5wyYgL （提取码：c6fa）
   chmod a+x qt-creator-opensource-linux-x86_64-4.4.1.run
   ./qt-creator-opensource-linux-x86_64-4.4.1.run
