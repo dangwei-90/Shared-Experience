@@ -1,0 +1,7 @@
+报错：fatal: bad config line 1 in file .git/config
+删除config文件
+执行:
+git config --global user.email "xxx"
+git config --global user.name "xxx"
+
+即可
