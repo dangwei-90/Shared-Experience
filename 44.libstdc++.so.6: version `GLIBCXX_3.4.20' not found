@@ -1,0 +1,20 @@
+问题：
+libstdc++.so.6: version `GLIBCXX_3.4.20' not found
+
+原因：
+检查动态库libstdc++.so.6, 查看是否缺少GLIBCXX_3.4.20
+命令：
+strings /usr/lib/x86_64-linux-gnu/libstdc++.so.6 | grep GLIBC
+
+解决方式：
+查找x86_64-linux-gnu是否存在对应的lib，譬如：libstdc++.so.6.0.20
+find / -name libstdc++.so.6*
+如果存在，则链接即可
+$ rm -f /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+$ ln -s /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.20 /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+
+
+参考：https://blog.csdn.net/hanyunpiaoyu/article/details/80648212
+
+
+
