@@ -1,0 +1,16 @@
+libstdc++.so.6报错问题：
+version GLIBCXX_3.4.21 not defined in file libstdc++.so.6 with link time reference
+
+原因：
+罪魁祸首是Ubuntu工具链上传(受限)的PPA遗留下来的。
+
+PPA：表示Personal Package Archives,也就是个人软件包集。
+很多软件包由于各种原因吧，不能进入官方的Ubuntu软件仓库。为了方便Ubuntu用户使用，launchpad.net提供了ppa,
+允许用户建立自己的软件仓库，自由的上传软件。PPA也被用来对一些打算进入Ubuntu官方仓库的软件，或者某些软件的新版本进行测试。
+
+解决方法：
+sudo apt install ppa-purge
+sudo ppa-purge ppa:ubuntu-toolchain-r/test
+
+
+参考：https://askubuntu.com/questions/777803/apt-relocation-error-version-glibcxx-3-4-21-not-defined-in-file-libstdc-so-6/777814
