@@ -1,0 +1,6 @@
+用VS2010编译C++项目时出现这样的错误：
+LNK1123: 转换到 COFF 期间失败: 文件无效或损坏
+
+解决方法：
+复制 C:\Windows\winsxs\x86_netfx-cvtres_for_vc_and_vb_b03f5f7f11d50a3a_6.1.7601.17514_none_ba1c770af0b2031b 目录下的 cvtres.exe 
+到C:\Program Files\Microsoft Visual Studio 10.0\VC\bin 目录下，直接覆盖替换。
