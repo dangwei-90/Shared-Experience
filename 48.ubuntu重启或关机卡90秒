@@ -1,0 +1,12 @@
+ubuntu关机时，提示：
+A stop job is running for Session c2 of user ... (1min 30s)
+
+解决方法：
+sudo gedit /etc/systemd/system.conf
+去除默认的注释，修改为：
+DefaultTimeoutStartSec=1s
+DefaultTimeoutStopSec=1s
+DefaultRestartSec=100ms
+重启：
+sudo systemctl daemon-reload
+sudo reboot
