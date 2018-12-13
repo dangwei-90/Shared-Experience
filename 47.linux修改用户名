@@ -1,0 +1,25 @@
+1.开root
+  sudo passwd
+  
+2.修改sudoer
+  防止过程中用户权限不够
+  命令：gedit /etc/sudoer
+  root ALL=(ALL:ALL) ALL
+  下添加
+  xxx ALL=(ALL:ALL) ALL
+  
+3.修改shadow
+  gedit /etc/shadow
+  找到对应的用户名，修改用户名为xxx
+  
+4.修改开始目录
+  cd /home
+  mv 用户名 xxx
+  
+5.修改passwd
+  gedit /etc/passwd
+  找到对应的用户名，修改用户名为xxx
+  
+6.修改组
+  gedit /etc/group
+  修改为xxx
