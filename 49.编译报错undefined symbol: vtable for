@@ -1,0 +1,2 @@
+报错：undefined symbol: vtable for
+原因：结构体/类中的某个方法不是纯虚函数，而且没有被定义。
