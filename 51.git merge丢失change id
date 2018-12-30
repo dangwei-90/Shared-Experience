@@ -1,0 +1,10 @@
+在合并的时候也就是 git merge 的时候
+方案一： 
+  git merge <branch1> --no-commit <branch1> 是你要合并的分支名称。
+  --no-commit 就是不提交，合并以后再重新提交一次.
+
+方案二：
+  amend
+
+方案三：
+  重新拉代码
