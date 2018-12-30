@@ -1,0 +1,15 @@
+Gerrit里点击“publish and submit”提示如下：
+  Your change could not be merged due to a path conflict.
+  Please merge (or rebase) the change locally and upload the resolution for review.
+  
+cd ~/work/chrome/src      #切换到项目路径
+git branch                #查看分支情况
+git checkout master       #选择分支
+git fetch origin          #fetch与pull的区别，自己再搜吧～
+git rebase origin/master  #查看有“CONFLICT (content): ”的地方，手工解决冲突后，下一步
+git add xxx               #这只是一个举例，即要先add操作
+git rebase --continue
+git push origin HEAD:refs/for/master    
+                          #OK了
+
+git push后，你需要在Gerrit里面再次review一次。
