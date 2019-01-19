@@ -1,1 +1,17 @@
+gitk是git的一个bin工具，如果git不包含gitk只能说明当前使用的git版本过老。
 
+安装git方法如下：
+1.首先安装brew，方便安装git
+  
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+然后更新软件源并安装git
+
+brew update
+brew install git
+查看git版本
+
+git --version  # 我安装之后git version 2.18.0
+安装完成后执行type命令检查git路径
+
+type -a git
+如果结果路径包含/usr/local/bin/git则安装成功，此时只需在项目目录下输入gitk命令就可以启动gitk了。
