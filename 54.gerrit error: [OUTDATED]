@@ -3,7 +3,7 @@
 报错：A Gerrit patchset depends on a outdated patchset
 
 解决方式：
-*前提：gerrit 报错[OUTDATED]后，没有commit.即非[MERGER][OUTDATED]错误
+*前提：gerrit 报错[OUTDATED]后，没有commit.即非[MERGER][OUTDATED]错误。如果在gerrit提交，出现[MERGER][OUTDATED],使用rebase按钮。
 // 回退到报错前版本
 1.git reset --soft commit-id
 // 更新代码
