@@ -1,0 +1,17 @@
+git push后
+报错如下：
+Unable to negotiate with xxxxxxxx: no matching cipher found. Their offer: aes128-cbc,3des-cbc,blowfish-cbc,aes192-cbc,aes256-cbc
+fatal: 无法读取远程仓库
+no matching cipher found. Their offer: aes128-cbc,3des-cbc,blowfish-cbc,aes192-cbc,aes256-cbc
+
+解决方法：
+sudo nano /etc/ssh/ssh_config
+
+Find the line:
+#   Ciphers aes128-ctr,aes192-ctr,aes256-ctr,arcfour256,arcfour128,aes128-cbc,3des-cbc,blow fish-cbc,cast128-cbc,aes192-cbc,aes256-cbc,arcfour
+
+Insert a new line directly underneath and paste this line in:
+
+Ciphers aes128-ctr,aes192-ctr,aes256-ctr,aes128-cbc,3des-cbc,aes192-cbc,aes256-cbc
+
+Save the file and exit.  ssh should work as usual.
