@@ -1,0 +1,3 @@
+deepin回收站路径：
+~/.local/share/Trash/files
+// 注意：home为当前用户home，而非root home.
