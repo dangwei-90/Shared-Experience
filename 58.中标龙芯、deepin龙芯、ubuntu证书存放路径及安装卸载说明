@@ -1,0 +1,52 @@
+中标龙芯、deepin龙芯、ubuntu证书存放路径及安装卸载说明
+
+一．Ubuntu/deepin龙芯
+证书路径：/etc/ssl/certs/ca-certificates.crt
+
+安装步骤：
+1.生成 crt后缀证书，如test.crt
+2.将crt证书拷贝到指定路径
+命令： sudo cp ./test.crt /usr/local/share/ca-certificates/
+3.安装证书
+命令：sudo update-ca-certificates
+安装完成
+
+卸载步骤：
+1.删除证书
+命令： sudo rm /usr/local/share/ca-certificates/test.crt
+3.更新证书
+命令：sudo update-ca-certificates
+卸载完成
+
+注：
+证书内容会附加在 /etc/ssl/certs/ca-certificates.crt 结尾。 
+该文件也包含系统的包含了系统自带的各种可信根证书。
+ca-certificates.crt内各个证书的头尾格式：BEGIN CERTIFICATE & END CERTIFICATE
+
+二．中标龙芯
+证书路径：/etc/pki/ca-trust/extracted/pem/tls-ca-bundle.pem
+/etc/pki/ca-trust/extracted/openssl/ca-bundle.trust.crt
+
+安装步骤：
+1.生成 crt后缀证书，如test.crt
+2.将crt证书拷贝到指定路径
+命令： sudo cp ./test.crt /usr/share/pki/ca-trust-source/anchors/
+3.安装证书
+命令：sudo update-ca-trust test.crt
+安装完成
+
+卸载步骤：
+1.删除证书
+命令： sudo rm /usr/share/pki/ca-trust-source/anchors/test.crt
+3.更新证书
+命令：sudo update-ca-trust
+卸载完成
+注：
+证书内容会同时附加在 /etc/pki/ca-trust/extracted/pem/tls-ca-bundle.pem 
+以及 /etc/pki/ca-trust/extracted/openssl/ca-bundle.trust.crt 的结尾。 
+该文件也包含系统的包含了系统自带的各种可信根证书。
+tls-ca-bundle.pem 内各个证书的头尾格式：BEGIN CERTIFICATE & END CERTIFICATE
+ca-bundle.trust.crt 内各个证书的头尾格式：
+BEGIN TRUSTED CERTIFICATE & END TRUSTED CERTIFICATE
+
+
