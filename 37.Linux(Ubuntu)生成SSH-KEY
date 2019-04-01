@@ -35,3 +35,6 @@
   ....your_email@example.com
 
 5.拷贝id_rsa.pub的内容使用即可
+
+注：
+如果出现证书失败：在代码目录执行 ssh-add，尝试。
