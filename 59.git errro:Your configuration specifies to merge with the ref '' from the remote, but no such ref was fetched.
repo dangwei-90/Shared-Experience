@@ -1,0 +1,8 @@
+git pull发生错误：
+Your configuration specifies to merge with the ref '' from the remote, but no such ref was fetched.
+
+解决方法：
+检查.git下config的
+  [remote "origin"]
+	url = xxxx
+一般是该url导致该错误
