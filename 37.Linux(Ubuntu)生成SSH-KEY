@@ -1,5 +1,3 @@
-建议使用root把ssh文件生成在/root/.ssh/路径下
-
 1.检查SSH-KEY是否已经生成过
   ls -al ~/.ssh
   
@@ -26,15 +24,14 @@
   |        .+E..+   |
   |         +==Bo.  |
   +-----------------+
+  
+4.执行 ssh-add，解决权限问题。
 
-4.查看生成成功的KEY
-  cat /root/.ssh/id_rsa.pub
+5.查看生成成功的KEY
+  cat ~/.ssh/id_rsa.pub
   内容如下：
   ssh-rsa ..................
   ..........................
   ....your_email@example.com
 
-5.拷贝id_rsa.pub的内容使用即可
-
-注：
-如果出现证书失败：在代码目录执行 ssh-add，尝试。
+6.拷贝id_rsa.pub的内容使用即可
