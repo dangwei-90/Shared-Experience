@@ -1,0 +1,35 @@
+参考文档：https://www.v2ray.com/developer/intro/compile.html 
+系统:ubuntu18.04
+
+编译步骤：
+1.安装 goclang
+   下载: https://golang.org/doc/install 
+    解压命令:
+    tar -C /usr/local -xzf go1.14.2.linux-amd64.tar.gz
+    配置环境变量命令:
+    export PATH=$PATH:/usr/local/go/bin
+
+2.安装 Bazel
+    添加源命令:
+    sudo apt install curl
+    curl https://bazel.build/bazel-release.pub.gpg | sudo apt-key add -
+    echo "deb [arch=amd64] https://storage.googleapis.com/bazel-apt stable jdk1.8" | sudo tee /etc/apt/sources.list.d/bazel.list
+    安装和更新命令:
+    sudo apt update && sudo apt install bazel
+    安装1.0.0命令:
+    sudo apt install bazel-1.0.0
+    安装jdk命令:
+    sudo apt install openjdk-11-jdk
+    (注:如果是ubuntu16,需用命令: sudo apt install openjdk-8-jdk)
+
+3.下载v2ray代码
+    下载命令:
+    go get -u -insecure v2ray.com/core
+    (注:加-insecure是为了解决 Https跳转的问题)
+
+4.交叉编译v2ray
+    编译命令:
+    cd $(go env GOPATH)/src/v2ray.com/core/main
+    env CGO_ENABLED=0  GOOS=windows GOARCH=amd64 go build -o $HOME/v2ray.exe -ldflags "-s -w"
+    cd $(go env GOPATH)/src/v2ray.com/core/infra/control/main
+    env CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build -o $HOME/v2ctl.exe -tags confonly -ldflags "-s -w"
